@@ -10,7 +10,7 @@ console.log(typeof null);//retorna tipo object
 if (typeof frase === 'string') {
   console.log('frase é string');
 }
-else (typeof preco === 'number') {
+if (typeof preco === 'number') {
   console.log('preco é number');
 }
 if (typeof condi === 'boolean') {
@@ -24,7 +24,7 @@ const frase2 = String('Front End');//Usando a função construtura como função
 const frase3 = 'Front End';//string pura
 
 console.log(typeof String);// Retorna um type Function
-console.log(typeof string);// Retorna um erro, string é um tipo de dado. como se fosse uma variavel. N existe isso em Ts puro
+//console.log(typeof string);// Retorna um erro, string é um tipo de dado. como se fosse uma variavel. N existe isso em Ts puro
 console.log(typeof frase1);
 console.log(typeof frase2);
 console.log(typeof frase3);
