@@ -21,7 +21,7 @@ type TypeProduto = {
   teclado: boolean;
 };
 
-function preencherDados(dados: InterfaceProduto) {
+function preencherDados1(dados: InterfaceProduto) {
   document.body.innerHTML += `
   <div>
     <h2>${dados.nome}</h2>
