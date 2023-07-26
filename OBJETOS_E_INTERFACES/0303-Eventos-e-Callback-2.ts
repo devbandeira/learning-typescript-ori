@@ -42,6 +42,6 @@ function ativarMenu4(event: Event) {
 }
 
 const button4 = document.querySelector('button');
-button?.addEventListener('click', ativarMenu4);
+button4?.addEventListener('click', ativarMenu4);
 
-window.addEventListener('keydown', ativarMenu)4;
+window.addEventListener('keydown', ativarMenu4);
