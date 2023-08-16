@@ -1,6 +1,14 @@
 /*
 Uma array não pode ser verificada com o typeof pois a mesma é um object. 
 Podemos verificar usando TYPE GUARD se o dado é instanceof Array ou usar a função Array.isArray(). 
+
+TypeScript não executa JavaScript
+
+Sabemos já que o TS não executa o JS durante a checagem dos tipos. Se isso ocorre, 
+então como a função isArray consegue ser usada como Type Guard?
+
+Com o Type Predicate :arg is type, podemos indicar qual o tipo de argumento uma 
+função booleana (que retorna boolean) recebeu para ser verdadeira.
 */
 
 async function fetchCursos() {
