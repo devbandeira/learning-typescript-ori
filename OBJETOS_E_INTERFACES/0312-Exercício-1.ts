@@ -9,7 +9,7 @@
 
 /*OBS -> TARGET é o elemento que disparou o evento - CurrentTarget é o elemento 
 que possui o evento*/
-interface Window {
+interface Window {//Até o momento de todo o código aqui, esse o ponto mais critico, pq o Userdata de inicio pode ser qualquer coisa, o que pode impedir do código executar, ñ vai preencher os dados.
   UserData: any;
 }
 
@@ -43,15 +43,18 @@ function isUserData(obj: unknown): obj is UserData {
 }
 
 function loadLocalStorage() {
-  const localUserData = localStorage.getItem('UserData');
+  const localUserData = localStorage.getItem('UserData');//localStorage.getItem pode ser null, então a primeira coisa que fazemos é checar
   if (localUserData && validJSON(localUserData)) {
-    const UserData = JSON.parse(localUserData);
+    const UserData = JSON.parse(localUserData);//É uma string e transformo em OBJ JSON.parse. Lembrando que parse so funciona se o que ele estiver transformando for um JSON valido, uma string simples não pode ser ex.: 'nome'
+    //parse recebem @params TEXT - A valid JSON STRING. Vamos criar uma fn para validar isso antes validJSON (isso é JS apenas, para validar o JSON)
     if (isUserData(UserData)) {
-      Object.entries(UserData).forEach(([key, value]) => {
-        const input = document.getElementById(key);
-        if (input instanceof HTMLInputElement) {
-          input.value = value;
-          window.UserData[key] = value;
+      /*Fznd um loop com entries para validar cada valor venda do UserData
+      o Object.entries() retorna uma array de array onde tem [[key: value], [nome: 'Alex']] */
+      Object.entries(UserData).forEach(([key, value]) => {/*desestruturo no foreach ja que tenho key e value */
+        const input = document.getElementById(key);/*Seleciono o INPUT que tem o id com o nome dessa chave */
+        if (input instanceof HTMLInputElement) {/*Verifico novamente */
+          input.value = value;/*coloco o valor no input*/ /*até aqui o UserData no console ta vazio */
+          window.UserData[key] = value;/*entao preencho o UserData aqui */
         }
       });
     }
