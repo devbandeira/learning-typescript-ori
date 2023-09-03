@@ -1,3 +1,4 @@
+//vai ser utilizado bem pouco durante o curso, talvez nunca
 /*
 Type Assertions -> Utilizaremos a palavra AS para dizer o tipo de dado , praticamente
 afirmamos que o dado é de tal tipo. Assim o TS confia em nós e deixa utilizarmos
